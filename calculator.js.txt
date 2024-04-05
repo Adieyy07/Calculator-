@@ -1,0 +1,22 @@
+let expression = '';
+
+function appendToDisplay(value) {
+    expression += value;
+    document.getElementById('display').innerText = expression;
+}
+
+function clearDisplay() {
+    expression = '';
+    document.getElementById('display').innerText = '0';
+}
+
+function calculate() {
+    try {
+        const result = eval(expression);
+        document.getElementById('display').innerText = result;
+        expression = result.toString();
+    } catch (error) {
+        document.getElementById('display').innerText = 'Error';
+        expression = '';
+    }
+}
